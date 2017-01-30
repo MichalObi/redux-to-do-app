@@ -9,14 +9,14 @@ export default (store) => ({
     require.ensure([], (require) => {
       /*  Webpack - use require callback to define
           dependencies for bundling   */
-
-      const reducer = require('./modules/to-do').default
+      const ToDo = require('./containers/ToDoContainer').default
+      const reducer = require('./modules/ToDo').default
 
       /*  Add the reducer to the store on key 'to-do'  */
       injectReducer(store, { key: 'to-do', reducer })
 
       /*  Return getComponent   */
-      cb(null)
+      cb(null, ToDo)
 
     /* Webpack named bundle   */
     }, 'to-do')
