@@ -1,9 +1,34 @@
-const initialState = 0
+let nextToDoId = 0
 
-export const addTodo = () => {
-  console.log('text');
+// Action creators
+export const addTodo = (text) => {
+  return {
+    type: 'ADD_TODO',
+    id: nextToDoId++,
+    text,
+    completed: false
+  }
 }
 
-export default function toDoReducer (state = initialState, action) {
-  return true
+const todo = (state, action) => {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return {
+        id: action.id,
+        text: action.text,
+        completed: action.completed
+      }
+  }
 }
+
+const todos = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_TODO':
+    return [
+      ...state,
+      todo(undefined, action)
+    ]
+  }
+}
+
+export default todos
