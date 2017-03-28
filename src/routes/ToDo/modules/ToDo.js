@@ -1,38 +1,41 @@
 let nextToDoId = 0
 
+export const ADD_TODO = 'ADD_TODO'
+
 // Action creators
-export const addTodo = (text) => {
-  debugger;
+export const addTodo = () => {
   return {
-    type: 'ADD_TODO',
-    id: nextToDoId++,
-    text,
-    completed: false
+    type: ADD_TODO,
+    payload: {
+      id: nextToDoId++,
+      text: 'test',
+      completed: false
+    }
   }
 }
 
-const todo = (state, action) => {
-  debugger;
-  switch (action.type) {
-    case 'ADD_TODO':
-      return {
-        id: action.id,
-        text: action.text,
-        completed: action.completed
-      }
-  }
-}
-
+// Reducer for todos collection
 const todos = (state = [], action) => {
-  debugger;
   switch (action.type) {
-    case 'ADD_TODO':
+    case ADD_TODO:
       return [
         ...state,
         todo(undefined, action)
       ]
     default:
       return state
+  }
+}
+
+// Reducer for specyfic to do
+const todo = (state, action) => {
+  switch (action.type) {
+    case ADD_TODO:
+      return {
+        id: action.id,
+        text: action.text,
+        completed: action.completed
+      }
   }
 }
 
