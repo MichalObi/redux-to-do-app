@@ -2,6 +2,7 @@ let nextToDoId = 0
 
 // Action creators
 export const addTodo = (text) => {
+  debugger;
   return {
     type: 'ADD_TODO',
     id: nextToDoId++,
@@ -11,6 +12,7 @@ export const addTodo = (text) => {
 }
 
 const todo = (state, action) => {
+  debugger;
   switch (action.type) {
     case 'ADD_TODO':
       return {
@@ -22,12 +24,15 @@ const todo = (state, action) => {
 }
 
 const todos = (state = [], action) => {
+  debugger;
   switch (action.type) {
     case 'ADD_TODO':
-    return [
-      ...state,
-      todo(undefined, action)
-    ]
+      return [
+        ...state,
+        todo(undefined, action)
+      ]
+    default:
+      return state
   }
 }
 
