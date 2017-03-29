@@ -15,7 +15,7 @@ export const addTodo = (text) => {
 }
 
 // Reducer for todos collection
-const todos = (state = [], action) => {
+const toDos = (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
       return [
@@ -32,11 +32,11 @@ const todo = (state, action) => {
   switch (action.type) {
     case ADD_TODO:
       return {
-        id: action.id,
-        text: action.text,
-        completed: action.completed
+        id: action.payload.id,
+        text: action.payload.text,
+        completed: action.payload.completed
       }
   }
 }
 
-export default todos
+export default toDos
