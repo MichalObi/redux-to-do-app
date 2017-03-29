@@ -12,9 +12,9 @@ export const ToDo = (props) => (
       </div>
       <div id='to-do-list'>
         <ul>
-          <li>to do one</li>
-          <li>to do two</li>
-          <li>to to three</li>
+          {props.todos.map(todo =>
+            <li>ID: {todo.id} Text: {todo.text} Complited: {todo.complited}</li>
+          )}
         </ul>
       </div>
       <div id='to-do-filter'>
@@ -30,7 +30,8 @@ export const ToDo = (props) => (
 )
 
 ToDo.props = {
-  addTodo   : React.PropTypes.func.isRequired
+  addTodo   : React.PropTypes.func.isRequired,
+  todos     : React.PropTypes.array.isRequired
 }
 
 export default ToDo

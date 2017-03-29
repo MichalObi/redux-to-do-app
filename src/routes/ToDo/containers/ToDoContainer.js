@@ -9,7 +9,7 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => ({
-  toDos : state.toDos
+  todos : state.todos
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToDo)

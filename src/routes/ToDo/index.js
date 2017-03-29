@@ -13,12 +13,12 @@ export default (store) => ({
       const reducer = require('./modules/ToDo').default
 
       /*  Add the reducer to the store on key 'todo'  */
-      injectReducer(store, { key: 'todo', reducer })
+      injectReducer(store, { key: 'todos', reducer })
 
       /*  Return getComponent   */
       cb(null, ToDo)
 
     /* Webpack named bundle   */
-    }, 'todo')
+    }, 'todos')
   }
 })
