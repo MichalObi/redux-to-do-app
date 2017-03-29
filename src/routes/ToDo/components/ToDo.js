@@ -1,12 +1,14 @@
 import React from 'react'
 
+let input;
+
 export const ToDo = (props) => (
   <div>
     <h2>ToDo</h2>
     <div id='to-do'>
       <div id='add-to-do'>
-        <input type='text' placeholder='add to do'></input>
-        <button onClick={props.addTodo}>Add to do</button>
+        <input type='text' placeholder='add to do' ref={(node) => input = node} />
+        <button onClick={() => props.addTodo(input.value)}>Add to do</button>
       </div>
       <div id='to-do-list'>
         <ul>

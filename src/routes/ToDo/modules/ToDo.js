@@ -3,12 +3,12 @@ let nextToDoId = 0
 export const ADD_TODO = 'ADD_TODO'
 
 // Action creators
-export const addTodo = () => {
+export const addTodo = (text) => {
   return {
     type: ADD_TODO,
     payload: {
       id: nextToDoId++,
-      text: 'test',
+      text,
       completed: false
     }
   }
