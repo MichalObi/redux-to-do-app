@@ -13,7 +13,7 @@ export const ToDo = (props) => (
       <div id='to-do-list'>
         <ul>
           {props.todos.map(todo =>
-            <li>ID: {todo.id} Text: {todo.text} Complited: {todo.complited}</li>
+            <li onClick={() => props.changeToDoStatus(todo)}>ID: {todo.id} Text: {todo.text} Completed: {'' + todo.completed}</li>
           )}
         </ul>
       </div>

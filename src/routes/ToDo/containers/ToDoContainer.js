@@ -1,11 +1,12 @@
 import { connect } from 'react-redux'
 
-import { addTodo } from '../modules/ToDo'
+import { addTodo, changeToDoStatus } from '../modules/ToDo'
 
 import ToDo from '../components/ToDo'
 
 const mapDispatchToProps = {
-  addTodo
+  addTodo,
+  changeToDoStatus
 }
 
 const mapStateToProps = (state) => ({
